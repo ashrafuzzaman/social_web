@@ -1,9 +1,12 @@
+require 'omniauth/oauth'
+
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "please-change-me@config-initializers-devise.com"
+  #config.omniauth :facebook, "218229454853910", "0baae2bef3e2afa495bbeb62dc0779ea"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
