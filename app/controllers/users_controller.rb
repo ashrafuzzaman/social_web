@@ -3,4 +3,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def clear
+    User.delete_all
+  end
+
 end
