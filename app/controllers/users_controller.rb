@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def clear
     User.delete_all
+    redirect_to "/"
   end
 
 end
