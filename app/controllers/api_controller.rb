@@ -4,5 +4,4 @@ class ApiController < ApplicationController
     @user = User.create!(:email => params[:email], :password => params[:password])
     render :json => @user
   end
-
 end

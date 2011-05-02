@@ -2,16 +2,25 @@ SwIdentity::Application.routes.draw do
   root :to => "home#index"
   #get "home/index"
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => {:sessions => 'api_session'}, :skip => [:sessions] do
+    post 'api/sign_in' => 'api_session#api_sign_in'
+    get 'users/sign_in', :to => 'devise/sessions#new', :as => 'new_user_session'
+    post 'users/sign_in', :to => 'devise/sessions#create', :as => 'user_session'
+    get 'users/sign_out', :to => 'devise/sessions#destroy', :as => 'destroy_user_session'
+  end
+  
   match 'users' => 'users#index'
   match 'users/clear' => 'users#clear'
-  match 'api/users' => 'api#user_register', :via => :post
+  post 'api/users' => 'api#user_register'
   
+  #post 'api/sign_in' => 'api#sign_in'
+
 #  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
 #    get 'sign_in', :to => 'users/sessions#new', :as => :new_user_session
 #    get 'sign_out', :to => 'users/sessions#destroy', :as => :destroy_user_session
 #  end
-  
+
 # The priority is based upon order of creation:
 # first created -> highest priority.
 
