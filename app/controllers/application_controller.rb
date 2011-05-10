@@ -1,3 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  def load_user
+    @user = User.find_by_email(params[:email])
+  end
+
+  def authenticate_with_token
+    if @user.authentication_token == params[:auth_token]
+      true
+    else
+      render :json => {:error => "Invalid authentication token"}
+      false
+    end
+  end
 end

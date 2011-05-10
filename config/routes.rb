@@ -13,6 +13,8 @@ SwIdentity::Application.routes.draw do
   match 'users' => 'users#index'
   match 'users/clear' => 'users#clear'
   post 'api/users' => 'api#user_register'
+  post 'api/update_data_service_host' => 'api#update_data_service_host'
+  post 'api/data_service_hosts' => 'api#data_service_hosts'
   
   #post 'api/sign_in' => 'api#sign_in'
 
