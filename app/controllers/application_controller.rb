@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_with_token
+    load_user
     if @user.authentication_token == params[:auth_token]
       true
     else
