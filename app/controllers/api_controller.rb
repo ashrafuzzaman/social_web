@@ -5,7 +5,7 @@ class ApiController < ApplicationController
   #curl -d "email=test@test.com&password=123456" http://localhost:3000/api/users.json
   def user_register
     logger.info "User Info :: #{params[:email]} #{params[:password]}"
-    @user = User.create(:email => params[:email], :password => params[:password])
+    @user = User.create(:email => params[:email], :password => params[:password], :data_service_host => "http://social-web-data.heroku.com")
 
     if @user.valid?
       @user.reset_authentication_token!
