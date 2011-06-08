@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_with_token
     load_user
-    if @user.authentication_token == params[:auth_token]
+    if @user.present? && @user.authentication_token == params[:auth_token]
       true
     else
       render :json => {:error => "Invalid authentication token"}
