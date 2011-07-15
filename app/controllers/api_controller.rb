@@ -25,7 +25,7 @@ class ApiController < ApplicationController
   def data_service_hosts
     emails = params[:emails].gsub(/[ ]/, '').split(',')
     users = User.find_all_by_email(emails, :select => 'email, data_service_host')
-    logger.info "users :: #{users.inspect}"
+    logger.info "users JSON:: #{users.to_json.inspect}"
     render :json => {:users => users}
   end
 end
