@@ -1,7 +1,6 @@
 class ApiController < ApplicationController
   before_filter :load_user, :except => [:user_register]
   before_filter :authenticate_with_token, :except => [:user_register]
-
   #curl -d "email=test@test.com&password=123456" http://localhost:3000/api/users.json
   def user_register
     logger.info "User Info :: #{params[:email]} #{params[:password]}"
@@ -26,6 +25,10 @@ class ApiController < ApplicationController
     emails = params[:emails].gsub(/[ ]/, '').split(',')
     users = User.find_all_by_email(emails, :select => 'email, data_service_host')
     logger.info "users JSON:: #{users.to_json.inspect}"
-    render :json => {:users => users}
+    if user.empty?
+      render :json => {:error => "Friend not found"}
+    else
+      render :json => {:users => users}
+    end
   end
 end
