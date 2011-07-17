@@ -25,7 +25,7 @@ class ApiController < ApplicationController
     emails = params[:emails].gsub(/[ ]/, '').split(',')
     users = User.find_all_by_email(emails, :select => 'email, data_service_host')
     logger.info "users JSON:: #{users.to_json.inspect}"
-    if user.empty?
+    if users.empty?
       render :json => {:error => "Friend not found"}
     else
       render :json => {:users => users}
