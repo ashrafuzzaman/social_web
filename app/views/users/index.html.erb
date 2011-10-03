@@ -1,8 +1,11 @@
 <br/>
 <%= link_to "Clear users",  users_clear_path %>
 <br/>
-
-<% @users.each do |user| %>
-  <%= user.email %>
-  <br/>
-<% end %>
+<table>
+	<% @users.each do |user| %>
+	<tr>
+		<td> <%= user.email %></td>
+		<td> <%= user.data_service_host %></td>
+	</tr>
+	<% end %>
+</table>
