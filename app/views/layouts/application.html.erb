@@ -13,13 +13,7 @@
     <p class="alert">
       <%= alert %>
     </p>
-    <% if current_user %>
-      <%= link_to('logout', destroy_user_session_path) %>
-    <% else %>
-      <%= link_to "sign in", new_user_session_path %>
-      <%= link_to "register", new_user_registration_path %>
-    <% end %>
-
     <%= yield %>
+
   </body>
 </html>

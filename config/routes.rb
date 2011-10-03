@@ -1,5 +1,5 @@
 SwIdentity::Application.routes.draw do
-  root :to => "home#index"
+  root :to => "users#index"
   #get "home/index"
 
   #devise_for :users
