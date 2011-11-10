@@ -1,0 +1,160 @@
+<html>
+<head>
+<style type="text/css">
+body {
+	color: #4f6b72;
+	background: #E6EAE9;
+    margin:50px 0px; padding:0px;
+	text-align:center;
+}
+
+.center {
+    width:800px;
+	margin:0px auto;
+	text-align:left;
+	padding:15px;
+}
+
+a {
+	color: #c75f3e;
+}
+
+table {
+    width:800px;
+	font: 11px;
+	padding: 0;
+	margin: 10px;
+}
+
+
+th {
+	font: bold 14px;
+	color: #4f6b72;
+	border: 1px solid #C1DAD7;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA url(bg_header.jpg) repeat-x;
+}
+
+td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+td.alt {
+	background: #F5FAFA;
+	color: #797268;
+}
+
+</style>
+</head>
+<body>
+<div class="center">
+<h1>API</h1>
+<div>These are the REST api documentation of the user discovery service. This is used to find the data service location for a user. The project source is hosted in <a href="https://github.com/ashrafuzzaman/social_web">https://github.com/ashrafuzzaman/social_web</a>. And the service is hosted in <a href="http://social-web.heroku.com">http://social-web.heroku.com</a></div>
+    <table cellspacing="0">
+        <th colspan="2">Register a new user</th>
+        <tr>
+            <td width="150px"><b>Path</b></td>
+            <td>/users.json</td>
+        </tr>
+        <tr>
+            <td width="150px"><b>HTTP method</b></td>
+            <td>POST</td>
+        </tr>
+            <tr colspan="2"><td class="alt" colspan="2"><b>Params</b></td></tr>
+            <tr>
+                <td class=”alt” width="150px"><b>email</b></td>
+                <td class=”alt”>the email of the user</td>
+            </tr>
+            <tr>
+                <td class=”” width="150px"><b>password</b></td>
+                <td class=””>password to authenticate</td>
+            </tr>
+            <tr>
+                <td class=”alt” width="150px"><b>data_service_host</b></td>
+                <td class=”alt”>the location url of the data service</td>
+            </tr>
+        <tr>
+            <td width="150px"><b>Description</b></td>
+            <td>Returns an auth token to use authenticated services</td>
+        </tr>
+    </table>
+    <table cellspacing="0">
+        <th colspan="2">Signin for user</th>
+        <tr>
+            <td width="150px"><b>Path</b></td>
+            <td>/api/sign_in.json</td>
+        </tr>
+        <tr>
+            <td width="150px"><b>HTTP method</b></td>
+            <td>POST</td>
+        </tr>
+            <tr colspan="2"><td class="alt" colspan="2"><b>Params</b></td></tr>
+            <tr>
+                <td class=”alt” width="150px"><b>email</b></td>
+                <td class=”alt”>the email of the user</td>
+            </tr>
+            <tr>
+                <td class=”” width="150px"><b>password</b></td>
+                <td class=””>password to authenticate</td>
+            </tr>
+        <tr>
+            <td width="150px"><b>Description</b></td>
+            <td>Returns an auth token to use authenticated services</td>
+        </tr>
+    </table>
+    <table cellspacing="0">
+        <th colspan="2">Update data service host</th>
+        <tr>
+            <td width="150px"><b>Path</b></td>
+            <td>/api/update_data_service_host.json</td>
+        </tr>
+        <tr>
+            <td width="150px"><b>HTTP method</b></td>
+            <td>POST</td>
+        </tr>
+            <tr colspan="2"><td class="alt" colspan="2"><b>Params</b></td></tr>
+            <tr>
+                <td class=”alt” width="150px"><b>email</b></td>
+                <td class=”alt”>the email of the user</td>
+            </tr>
+            <tr>
+                <td class=”” width="150px"><b>auth_token</b></td>
+                <td class=””>the auth token that is generated while login</td>
+            </tr>
+            <tr>
+                <td class=”alt” width="150px"><b>data_service_host</b></td>
+                <td class=”alt”>the new service location</td>
+            </tr>
+        <tr>
+            <td width="150px"><b>Description</b></td>
+            <td>Returns an auth token to use authenticated services</td>
+        </tr>
+    </table>
+    <table cellspacing="0">
+        <th colspan="2">List of data service hosts for given emails</th>
+        <tr>
+            <td width="150px"><b>Path</b></td>
+            <td>/api/data_service_hosts.json</td>
+        </tr>
+        <tr>
+            <td width="150px"><b>HTTP method</b></td>
+            <td>POST</td>
+        </tr>
+            <tr colspan="2"><td class="alt" colspan="2"><b>Params</b></td></tr>
+            <tr>
+                <td class=”alt” width="150px"><b>emails</b></td>
+                <td class=”alt”>the list of email addresses of the people to search in the network</td>
+            </tr>
+        <tr>
+            <td width="150px"><b>Description</b></td>
+            <td>Returns list of data service hosts for given emails. This is used to find people in the network.</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

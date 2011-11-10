@@ -1,0 +1,35 @@
+description: These are the REST api documentation of the user discovery service. This is used to find the data service location for a user.
+    The project source is hosted in <a href="https://github.com/ashrafuzzaman/social_web">https://github.com/ashrafuzzaman/social_web</a>. And the service is hosted in <a href="http://social-web.heroku.com">http://social-web.heroku.com</a>
+apis:
+    -   title: Register a new user
+        url: /users.json
+        method: POST
+        params:
+            - {name: email, description: the email of the user}
+            - {name: password, description: password to authenticate}
+            - {name: data_service_host, description: the location url of the data service}
+        description: Returns an auth token to use authenticated services
+
+    -   title: Signin for user
+        url: /api/sign_in.json
+        method: POST
+        params:
+            - {name: email, description: the email of the user}
+            - {name: password, description: password to authenticate}
+        description: Returns an auth token to use authenticated services
+
+    -   title: Update data service host
+        url: /api/update_data_service_host.json
+        method: POST
+        params:
+            - {name: email, description: the email of the user}
+            - {name: auth_token, description: the auth token that is generated while login}
+            - {name: data_service_host, description: the new service location}
+        description: Returns an auth token to use authenticated services
+
+    -   title: List of data service hosts for given emails
+        url: /api/data_service_hosts.json
+        method: POST
+        params:
+            - {name: emails, description: the list of email addresses of the people to search in the network}
+        description: Returns list of data service hosts for given emails. This is used to find people in the network.
